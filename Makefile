@@ -1,12 +1,9 @@
-C = cobc
-FLAGS = -free -x $^ -o
-SOURCE = ./src/*.cbl
-
-all: helloWorld linearSearch dynamicArray binarySearch bubbleSort quickSort
+all: linearSearch binarySearch bubbleSort quickSort displayArray createArray randNum
 .PHONY: all
 
 %: src/%.cbl
-	$(C) -free -Wall -x -o bin/$@.exe $^
+	cobc -free -Wall -x -o bin/main.exe src/main.cbl
+	cobc -free -Wall -o bin/$@.so $^
 
 run:
 	./bin/*.exe

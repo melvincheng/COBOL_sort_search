@@ -7,7 +7,7 @@ data division.
 	local-storage section.
 		01 iteration pic 9(3) value 1.
 	linkage section.
-		01 arraySize pic s9(3).
+		01 arraySize pic 9(3).
 		01 array.
 			05 elements pic s9(3) occurs 0 to 999 times depending on arraySize.
 
