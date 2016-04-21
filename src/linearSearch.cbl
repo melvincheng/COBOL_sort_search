@@ -1,7 +1,7 @@
 identification division.
 program-id. LinearSearch.
 
-Data division.
+data division.
 	working-storage section.
 	78 arraySize value 10.
 	01 ws-array.
@@ -12,9 +12,10 @@ Data division.
 
 
 procedure division.
-	firstparagraph.
+	first-para.
 	display "Please enter a number"
 	accept target
+	call 'dynamicArray' using target
 	move 1 to ws-element(1)
 	move 2 to ws-element(2)
 	move 3 to ws-element(3)
@@ -25,7 +26,7 @@ procedure division.
 	move 8 to ws-element(8)
 	move 9 to ws-element(9)
 	move 10 to ws-element(10)
-	perform second-para until arrayIndex = 10
+	perform second-para until arrayIndex = arraySize
 	display "Number not found in list"
 	stop run.
 
@@ -35,4 +36,19 @@ procedure division.
 	if target = ws-element(arrayIndex) then
 		display "Number found at index: "arrayIndex
 		stop run.
-	
+
+*> identification division.
+*> program-id. dynamicArray.
+
+*> data division.
+*> 	linkage section.
+*> 		01 ip1 pic 9(02).
+*> 		01 ip2 pic 9(02) value 10.
+*> 		01 op pic 9(03).
+
+*> procedure division.
+*> 	compute op = ip2 + ip2
+*> 	exit program.
+
+*> end program dynamicArray.
+*> end program LinearSearch.
