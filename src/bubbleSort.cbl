@@ -5,11 +5,14 @@ data division.
 	working-storage section.
 		78 arraySize value 11.
 		01 ws-array.
-		05 ws-element pic s9(3) occurs arraySize times.
-		05 iteration pic 9(3) value 1.
-		05 bubbleIter pic 9(3) value 1.
+			05 ws-element pic s9(3) occurs arraySize times.
+		*> 01 iteration pic 9(3) value 1.
+		01 bubbleIter pic 9(3) value 1.
 
 		01 out pic -Z(2)9.
+
+	local-storage section.
+		01 iteration pic 9(3) value 1.
 
 procedure division.
 	first-para.
