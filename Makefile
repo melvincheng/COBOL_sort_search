@@ -1,13 +1,16 @@
 C = cobc
-FLAGS = -free -x -o
-SOURCE = helloWorld.cbl
-EXE = helloWorld.exe
+FLAGS = -free -x $^ -o
+SOURCE = ./src/*.cbl
 
-helloWorld.exe : $(OBJECTS)
-	$(C) $(FLAGS) $(EXE) $(SOURCE)
+all: helloWorld linearSearch
+.PHONY: all
+
+%: src/%.cbl
+	$(C) -free -Wall -x -o bin/$@.exe $^
 
 run:
-	./$(EXE)
+	./bin/*.exe
 
+.PHONY: clean
 clean:
-	@rm helloWorld.exe
+	@rm bin/*.exe bin/*.so
