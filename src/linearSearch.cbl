@@ -9,13 +9,13 @@ data division.
 
 	01 target pic 9(2).
 	01 arrayIndex pic 9(2) value 0.
+	01 out pic Z(2)9.
 
 
 procedure division.
 	first-para.
 	display "Please enter a number"
 	accept target
-	call 'dynamicArray' using target
 	move 1 to ws-element(1)
 	move 2 to ws-element(2)
 	move 3 to ws-element(3)
@@ -32,10 +32,11 @@ procedure division.
 
 
 	second-para.
-	add 1 to arrayIndex
 	if target = ws-element(arrayIndex) then
-		display "Number found at index: "arrayIndex
+		move arrayIndex to out
+		display "Number found at index: "out
 		stop run.
+	add 1 to arrayIndex.
 
 *> identification division.
 *> program-id. dynamicArray.

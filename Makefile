@@ -2,7 +2,7 @@ C = cobc
 FLAGS = -free -x $^ -o
 SOURCE = ./src/*.cbl
 
-all: helloWorld linearSearch dynamicArray binarySearch
+all: helloWorld linearSearch dynamicArray binarySearch bubbleSort
 .PHONY: all
 
 %: src/%.cbl
